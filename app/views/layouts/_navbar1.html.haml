@@ -1,0 +1,28 @@
+=javascript_include_tag "http://code.jquery.com/jquery-1.9.1.js", "http://code.jquery.com/ui/1.10.3/jquery-ui.js"
+=stylesheet_link_tag "http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"
+:javascript
+  $(function() {
+    $("#dialog").dialog(
+    {
+      autoOpen: false
+    });
+    $("#dialog_link").on("click", function(e) {
+      e.preventDefault();
+      $("#dialog").dialog("open");
+    });
+  });
+
+-if user_signed_in?
+  .btn
+    = link_to '  LOGOUT  ', destroy_user_session_path, method: :delete, class: "btn btn-primary", confirm: "Are you sure"
+- else
+  %div.page-header
+    = link_to 'LOGIN', '#', class: "btn btn-success", id: "dialog_link"
+    = link_to 'REGISTRATION', new_user_registration_path, class: "btn btn-primary"
+%div{title: "Welcome...", id: "dialog", style: "display:none"}
+  = form_tag user_session_path do
+    = text_field_tag 'user[email]'
+    = password_field_tag 'user[password]'
+    %button Sign in
+
+

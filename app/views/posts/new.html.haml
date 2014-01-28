@@ -1,0 +1,22 @@
+- if user_signed_in?
+  .container
+    .align
+      .form
+        .form-group
+          .row
+            .col-md-6.col-md-offset-3
+              %h1 Add New Shpory
+              = form_for @post do |c|
+                %p
+                  = c.label :Name, 'Subject name'
+                  = c.text_field :name, class: 'form-control'
+                %p
+                  = c.label :text, 'Materials'
+                  = c.text_area :text, class: 'editor form-control', rows: 10, cols: 68
+                %p
+                  = c.submit "Add a new shpory", class: 'btn btn-lg btn-primary btn-block'
+- else
+  .container
+    .align
+      %h1 If you want add new post, you need to #{link_to 'LOGIN', new_user_session_path, class: "btn btn-success"}
+

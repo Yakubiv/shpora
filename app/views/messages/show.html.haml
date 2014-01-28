@@ -1,0 +1,17 @@
+.container
+      It is your inbox messages.
+    %table{class: 'table'}
+      %tr
+        %th From
+        %th Theme
+        %th Content
+      -@messages.each do |m|
+        %tr
+          %td
+            #{User.find(m.sender_id).username}
+          %td
+            = m.tema
+          %td
+            = m.content
+
+

@@ -1,0 +1,19 @@
+.container
+  .page-header
+    .align
+      %h1.myfonts Subjects:
+      -  @posts.each do |p|
+        .row
+          .col-md-4.col-md-offset-4
+            .my
+              .container
+                %h1
+                  .btn
+                    = link_to p.name, p, class: 'btn btn-default btn-lg '
+                .row
+                  .btn
+                    = link_to "Edit", edit_post_path(p), class: 'btn btn-default '
+                    = link_to "Delete", p, confirm: 'Are you sure?', method: :delete, class: 'btn btn-default'
+.container
+  .align
+    = will_paginate @posts

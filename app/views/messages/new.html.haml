@@ -1,0 +1,14 @@
+.container
+  .form-group
+    .col-md-4.col-md-offset-4
+      %h1.align New message
+      = form_for [@user, @message] do |m|
+        = m.hidden_field :recepient_id
+        = m.hidden_field :read_at, value: :folse
+        %br
+        = m.text_field :tema, class: "form-control", placeholder: "Write Theme"
+        %br
+        = m.text_area :content, class: "form-control", placeholder: 'Your message text'
+        %br
+        .align
+          = m.submit "Send", class: "btn btn-block btn-default"

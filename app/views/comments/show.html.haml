@@ -1,0 +1,6 @@
+- @carrent_user.comments.each do |comment|
+
+    %p Commenter:
+      = comment.name
+      = comment.body
+      = f.hidden_field :post_id

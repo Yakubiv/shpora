@@ -1,0 +1,36 @@
+.container
+  .align
+    %h1 Profiles
+  %table{class: 'table'}
+    %tr
+      - if user_signed_in?
+        %th Username
+        %th Email
+        %th Message
+        %th Last visit
+        %th Recived
+        %th Sended
+        - @users.each do |user|
+          %tr
+            %td
+              = user.username
+            %td
+              = link_to user.email, user
+            %td
+              = link_to "Send new ", new_user_message_path(user), class: "btn btn-default"
+            %td
+              = user.last_sign_in_at.to_s(:short)
+            %td
+              = link_to "Sended", user_messages_sended_path(user)
+      - else
+        %th Username
+        %th Email
+        %th Last visit
+        - @users.each do |user|
+          %tr
+            %td
+              = user.username
+            %td
+              = link_to user.email, user
+            %td
+              = user.last_sign_in_at.to_s(:short)

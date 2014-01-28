@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %title Shpora
+    = stylesheet_link_tag    "application", media: "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    .navbar.navbar-default.navbar-static-top
+      .container
+        .navbar-collapse.collapse
+          %ul.navbar-nav.navbar-right
+            = render 'layouts/navbar'
+          %ul.nav.navbar-nav
+            %li.active
+              = link_to " HOME ", posts_path
+            %li
+              = link_to "ADD NEW ", new_post_path
+            = render 'layouts/profile'
+
+
+  .content
+    = yield
+  #footer
+    .container
+      %p.text-muted.credit
+        First Petro's site &copy

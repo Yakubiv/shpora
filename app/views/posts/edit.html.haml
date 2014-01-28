@@ -1,0 +1,16 @@
+.container
+  .align
+    .form
+      .form-group
+        .row
+          .col-md-6.col-md-offset-3
+            %h1 Edit post
+            = form_for @post do |c|
+              %p
+                = c.label :name, "Subject_name"
+                = c.text_field :name, class: 'form-control'
+              %p
+                = c.label :text, 'Materials'
+                = c.text_area :text, class: 'form-control editor'
+              %p
+                = c.submit "Update post", class: "btn btn-danger"

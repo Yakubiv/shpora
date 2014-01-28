@@ -1,0 +1,11 @@
+%ul.nav.navbar-nav
+  - if user_signed_in?
+    %li{class: "active"}
+      = link_to 'LOGOUT', destroy_user_session_path, method: :delete, confirm: "Are you sure"
+  - else
+    %li.active
+      = link_to 'LOGIN', new_user_session_path
+    %li
+      = link_to 'REGISTRATION', new_user_registration_path
+    %li= link_to "Sign in with Vkontakte", user_omniauth_authorize_path(:vkontakte)
+
