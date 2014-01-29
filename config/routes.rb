@@ -1,8 +1,9 @@
 Shpora::Application.routes.draw do
+  get "welcome/index"
   get "omniauth_callbacks/vkontakte"
  devise_for :users, controllers: { :omniauth_callbacks => "users/omniauth_callbacks"},
                      path_names:  { sign_up: 'register', sign_in: 'login', sign_out: 'logout' }
-root 'posts#index'
+root 'welcome#index'
 resources :users, only: [:index, :show] do
   resources :messages
   get 'messages/sended'
