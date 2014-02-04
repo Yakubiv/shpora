@@ -1,19 +1,25 @@
 .container
-  .page-header
-    .align
+  .row
+    .shares.col-md-8.col-xs-8.align
       %h1.myfonts Subjects:
-      -  @posts.each do |p|
-        .row
-          .col-md-4.col-md-offset-4
-            .my
-              .container
-                %h1
-                  .btn
-                    = link_to p.name, p, class: 'btn btn-default btn-lg '
+      .my
+        -  @posts.each do |p|
+          .row
+            .container
+              .form-group
+                = link_to p.name, p, class: 'btn btn-default btn-lg btn-block'
                 .row
                   .btn
-                    = link_to "Edit", edit_post_path(p), class: 'btn btn-default '
-                    = link_to "Delete", p, confirm: 'Are you sure?', method: :delete, class: 'btn btn-default'
+                    = link_to "Edit", edit_post_path(p), class: 'btn btn-primary '
+                    = link_to "Delete", p, confirm: 'Are you sure?', method: :delete, class: 'btn btn-danger'
+
+
+    %h1.myfonts Tags:
+    .shares.col-md-4.col-xs-4.align
+      .my
+        safasff
+
+
 .container
   .align
     = will_paginate @posts

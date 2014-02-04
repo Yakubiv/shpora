@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:create]
 
   def index
-    @posts = Post.paginate(page: params[:page], per_page: 3)
+    @posts = Post.paginate(page: params[:page], per_page: 6)
   end
 
   def new

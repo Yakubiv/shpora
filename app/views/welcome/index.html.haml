@@ -1,9 +1,41 @@
 .container
   .row
     .shares.col-md-4.col-xs-12
-      %h1
-        Do you have alreade acount here? Sign In please!
-
+      %h2.align Sign in
+      .form-group
+        .row
+          = form_tag session_path(:user) do
+            .form-group
+              = text_field_tag 'user[email]', nil, placeholder:"Email", class: "form-control "
+            .form-group
+              = password_field_tag 'user[password]', nil, placeholder:" Password ", class: "form-control"
+            .form-group.align
+              = check_box_tag 'user[remember_me]'
+              = label_tag 'user[remember_me]', 'Remember me'
+            %button.btn.btn-success.btn-block Sign in
+            .form-group
+              = link_to "Forgot your password?", new_password_path(:user)
     .shares.col-md-4.col-xs-12
-      %h2
-        Seconde one
+      .content
+        .align
+          %h3
+            This site will help you in everything, you'll get the highest mark in your class!!! Trust ME!!!
+            Also you can view our content without registration!
+          %h3
+            =link_to "All content", posts_path, class: "btn btn-primary "
+    .shares.col-md-4.col-xs-12
+      %h2.align Sign up
+      .form-group
+        .row
+          = form_tag registration_path(:user) do
+            .form-group
+              = text_field_tag 'user[username]', nil, placeholder: " Username ", class: "form-control"
+            .form-group
+              = text_field_tag 'user[email]', nil, placeholder: "Email", class: "form-control"
+            .form-group
+              = password_field_tag 'user[password]', nil, placeholder: "Password", class: "form-control"
+            .form-group
+              = password_field_tag 'user[password_confirmation]', nil, placeholder: "Confirmation password", class: "form-control"
+            %button.btn.btn-success.btn-block  Sign up
+  .row
+    =image_tag('shpora/page.jpeg')
